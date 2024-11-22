@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-image: url('/GererBudget.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #007bff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0056b3;
+        }
+
+        .container {
+            background-color: transparent;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container h2 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .text-center {
+            margin-top: 30px;
+        }
+
+        .text-center h3 {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .text-center a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .text-center a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body style="background-image: url('GererBudget.jpg')">
+
+<div class="container">
+    <h2>Se connecter</h2>
+
+    <c:if test="${not empty param.error}">
+        <p style="color:red;">Nom d'utilisateur ou mot de passe incorrect.</p>
+    </c:if>
+
+    <form action="/login" method="POST">
+        <div class="form-group">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" name="username" id="username" placeholder="Saisir votre nom d'utilisateur" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
+        </div>
+        <button type="submit" class="btn-submit">Connexion</button>
+    </form>
+
+</div>
+
+</body>
+
+</html>

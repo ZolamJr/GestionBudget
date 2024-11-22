@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modidfier Departement</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" >
+</head>
+<body>
+<div class="container">
+    <section class="mt-5">
+        <h1>Modifier Un Departement</h1>
+    </section>
+    <form th:action="@{'/departements/update/' + ${departement.id}}" method="post" th:object="${departement}">
+
+        <div class="mb-3">
+            <label for="nom" class="form-label">Categorie</label>
+            <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="Nom">
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
+    </form>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

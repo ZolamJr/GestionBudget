@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Depense</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" >
+</head>
+<body>
+<div class="container">
+    <section class="mt-5">
+        <h1>Modifier Une Depense</h1>
+    </section>
+    <form th:action="@{'/depenses/update/' + ${depense.id}}" method="post" th:object="${depense}">
+
+        <div class="mb-3">
+            <label class="form-label">Catégorie</label>
+            <select class="form-select selectpicker" th:field="*{categorie}">
+                <option th:each="categorie : ${categories}" th:value="${categorie.id}" th:text="${categorie.nom}">
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="text" th:field="*{date}" class="form-control" id="date" placeholder="Date">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Département</label>
+            <select class="form-select selectpicker" th:field="*{departement}">
+                <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.nom}">
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" min="0" th:field="*{description}" class="form-control"
+                   id="description" placeholder="Description">
+        </div>
+        <div class="mb-3">
+            <label for="employee" class="form-label">Employee</label>
+            <input type="text" min="0" th:field="*{employee}" class="form-control"
+                   id="employee" placeholder="Employee">
+        </div>
+        <div class="mb-3">
+            <label for="montant" class="form-label">Montant</label>
+            <input type="number" min="0" th:field="*{montant}" class="form-control"
+                   id="montant" placeholder="Montant">
+        </div>
+        <div class="mb-3">
+            <label for="typepaiement" class="form-label">Type paiement</label>
+            <input type="text" min="0" th:field="*{type_paiement}" class="form-control"
+                   id="typepaiement" placeholder="Type paiement">
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
+    </form>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

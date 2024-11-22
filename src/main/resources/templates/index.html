@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Dépenses</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .navbar-brand {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+.nav-link {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+}
+.navbar-nav .nav-link.active {
+    background-color: #007bff;
+    color: white !important;
+    border-radius: 5px;
+}
+.navbar-nav .nav-link:hover {
+    background-color: #0056b3;
+    color: white !important;
+    border-radius: 5px;
+}
+
+
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+
+.hero {
+background-image: url('/home.jpeg');
+background-size: cover;
+background-position: center;
+height: 60vh;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+text-align: center;
+padding: 20px;
+}
+
+.hero-content {
+background-color: rgba(0, 0, 0, 0.5);
+padding: 20px;
+border-radius: 10px;
+}
+
+.hero h1 {
+font-size: 3rem;
+margin: 0 0 20px;
+}
+
+.hero p {
+font-size: 1.25rem;
+margin: 0 0 20px;
+}
+
+.btn {
+background-color: #007bff;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+text-decoration: none;
+font-size: 1.2rem;
+}
+
+.btn:hover {
+background-color: #218838;
+}
+
+.features {
+padding: 60px 20px;
+background-color: #fff;
+}
+
+.features h2 {
+text-align: center;
+margin-bottom: 40px;
+}
+
+.feature {
+text-align: center;
+margin-bottom: 40px;
+}
+
+.feature i {
+font-size: 3rem;
+color: #007bff;
+margin-bottom: 10px;
+}
+
+footer {
+background-color: #007bff;
+color: white;
+text-align: center;
+padding: 20px 0;
+position: relative;
+bottom: 0;
+width: 100%;
+}
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gestion des Dépenses</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">Accueil</a>
+                    <a class="nav-link" href="/depenses">Dépenses</a>
+                    <a class="nav-link" href="/categories">Catégories</a>
+                    <a class="nav-link" href="/budgets">Budgets</a>
+                    <a class="nav-link" href="/departements">Départements</a>
+                    <a class="nav-link" href="/utilisateurs">Utilisateurs</a>
+                    <a class="nav-link" href="/listdepense">Liste Dépenses</a>
+                    <a class="nav-link" th:href="@{/logout}" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');">Déconnexion</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>Bienvenue dans la Gestion des Dépenses</h1>
+        <p>Suivez vos dépenses, établissez des budgets et prenez le contrôle de vos finances.</p>
+        <a href="/depenses" class="btn">Commencer</a>
+    </div>
+</header>
+
+<section class="features">
+    <div class="container">
+        <h2>Fonctionnalités</h2>
+        <div class="feature">
+            <i class="fas fa-chart-line"></i>
+            <h3>Analyse Financière</h3>
+            <p>Visualisez vos dépenses et vos revenus avec des graphiques et des rapports détaillés.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-wallet"></i>
+            <h3>Gestion des Budgets</h3>
+            <p>Établissez des budgets pour différents départements et suivez leur évolution.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-users"></i>
+            <h3>Gestion des Utilisateurs</h3>
+            <p>Contrôlez l'accès des utilisateurs et gérez les rôles au sein de l'application.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Gestion des Dépenses. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>

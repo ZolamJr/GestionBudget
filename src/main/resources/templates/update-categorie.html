@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modidfier Categorie</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" >
+</head>
+<body>
+<div class="container">
+    <section class="mt-5">
+        <h1>Modifier Une Categorie</h1>
+    </section>
+    <form th:action="@{'/categories/update/' + ${categorie.id}}" method="post" th:object="${categorie}">
+
+        <div class="mb-3">
+            <label for="nom" class="form-label">Categorie</label>
+            <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="Nom">
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
+    </form>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

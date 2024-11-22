@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveau Dépense</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        .nav-link {
+            font-size: 1.2rem;
+            padding: 10px 15px;
+        }
+        .nav-link.active {
+            background-color: #007bff;
+            color: white !important;
+            border-radius: 5px;
+        }
+        .nav-link:hover {
+            background-color: #0056b3;
+            color: white !important;
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+        form {
+            background-color: white;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar Section -->
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gestion des Dépenses</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" th:href="@{/}">Accueil</a>
+                    <a class="nav-link" th:href="@{/budgets}">Budgets</a>
+                    <a class="nav-link" th:href="@{/depenses}">Dépenses</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <section class="mt-5">
+        <h1>Nouveau Budget</h1>
+    </section>
+    <form th:action="@{/budgets/save}" method="post" th:object="${budget}">
+        <div class="mb-3">
+            <label for="montant" class="form-label">Montant</label>
+            <input type="number" name="montant" class="form-control" id="montant" placeholder="Nom">
+        </div>
+        <div class="mb-3">
+            <label for="date_debut" class="form-label">Date</label>
+            <input type="date" name="date_debut" class="form-control" id="date_debut" placeholder="Date">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Catégorie</label>
+            <select class="form-select selectpicker" th:field="*{categorie}">
+                <option th:each="categorie : ${categories}"
+                        th:value="${categorie.id}" th:text="${categorie.nom}">
+
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Departement</label>
+            <select class="form-select selectpicker" th:field="*{departement}">
+                <option th:each="departement : ${departements}"
+                        th:value="${departement.id}" th:text="${departement.nom}">
+
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-3">Enregistrer</button>
+    </form>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

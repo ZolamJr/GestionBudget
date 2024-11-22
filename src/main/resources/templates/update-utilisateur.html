@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Utilisateur</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" >
+</head>
+<body>
+<div class="container">
+    <h1>Modifier un Utilisateur</h1>
+
+    <form th:action="@{'/utilisateurs/edit/' + ${utilisateur.id}}" method="post" th:object="${utilisateur}">
+
+
+        <input type="hidden" th:field="*{id}" />
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom </label>
+
+            <input type="text" class="form-control" id="nom" th:field="*{nom}" required>
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prenom</label>
+
+            <input type="text" class="form-control" id="prenom" th:field="*{prenom}" required>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date de Naissance</label>
+
+            <input type="date" class="form-control" id="date" th:field="*{date}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Nom d'utilisateur</label>
+
+            <input type="text" class="form-control" id="username" th:field="*{username}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+
+            <input type="password" class="form-control" id="password" th:field="*{password}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="role" class="form-label">Rôle</label>
+
+            <select class="form-select" id="role" th:field="*{role}">
+                <option value="ADMIN" th:selected="${utilisateur.role == 'ADMIN'}">Administrateur</option>
+                <option value="EMPLOYEE" th:selected="${utilisateur.role == 'EMPLOYEE'}">Employé</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
